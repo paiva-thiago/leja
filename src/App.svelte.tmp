@@ -1,0 +1,25 @@
+<script>
+	 import { Button, Jumbotron } from 'sveltestrap';
+	 
+	 //TODO - Load it in a JSON file instead a simple Javascript Object
+	 let blogData = {
+		'title':'Leja',
+		'description': 'A simple static CMS developed in svelte!',
+		'author' : 'Thiago Paiva'
+	 }
+	 let year = new Date().getFullYear();
+</script>
+
+<Jumbotron>
+  <h1 class="display-3">{blogData.title}</h1>
+  <p class="lead">
+    {blogData.description}
+  </p>
+  <hr class="my-2" />
+  <p>
+		{year} {author} 
+  </p>
+  <p class="lead">
+    <Button color="primary">Learn More</Button>
+  </p>
+</Jumbotron>
