@@ -1,8 +1,9 @@
 <script>
-	 import { Button, Jumbotron } from 'sveltestrap';
-	 import Copyleft from './Copyleft.svelte';
-	 import ContentLoader from 'svelte-content-loader';
-	 //TODO - Load it in a JSON file instead a simple Javascript Object	 
+	 import ContentLoader 	from 'svelte-content-loader';
+	 import BlogHeader 		from './BlogHeader.svelte';
+	 import PostList   		from './PostList.svelte';
+	 import BlogFooter 		from './BlogFooter.svelte';
+
 	 async function getData(){
 		const res = await fetch('./data/blog-data.json');
 		const text = await res.text()		
@@ -31,19 +32,9 @@
 		  <rect x="20" y="100" rx="3" ry="3" width="80" height="10" />
 		</ContentLoader>
 	{:then retorno}
-		<Jumbotron>
-		  <h1 class="display-3">{retorno.title}</h1>
-		  <p class="lead">
-			{retorno.description}
-		  </p>
-		  <hr class="my-2" />
-		  <p>
-			<Copyleft/>{retorno.author} {new Date().getFullYear()}
-		  </p>
-		  <p class="lead">
-			<Button color="primary">Learn More</Button>
-		  </p>
-		</Jumbotron>
+		<BlogHeader retorno={retorno}/>
+		<PostList lista={retorno.posts}/>
+		<BlogFooter retorno={retorno}/>
 	{:catch error}
 		<p class="sos">{error.message}</p>
 	{/await}	

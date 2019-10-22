@@ -1,5 +1,19 @@
 {
 	"title":"Leja",
 	"description": "A simple static CMS developed in svelte!",
-	"author": "Thiago Paiva"
+	"author": "Thiago Paiva",
+	"posts": [
+		{
+			"date":20181022,
+			"title":"Welcome to Leja",
+			"start":"This is an example of our blog!",
+			"author":"John Armless"
+		},
+		{
+			"date":20181021,
+			"title":"Bem vindo ao Leja",
+			"start":"Este é um exemplo do nosso blog!",
+			"author":"John Armless"
+		}
+	]
 }
