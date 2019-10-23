@@ -1,16 +1,33 @@
 <script>
-	 import ContentLoader 	from 'svelte-content-loader';
-	 import BlogHeader 		from './BlogHeader.svelte';
-	 import PostList   		from './PostList.svelte';
-	 import BlogFooter 		from './BlogFooter.svelte';
+	 import ContentLoader 	from 'svelte-content-loader'
+	 import BlogHeader 		from './BlogHeader.svelte'
+	 import Blog            from './Blog.svelte'
+	 import BlogFooter 		from './BlogFooter.svelte'
+	 
 
 	 async function getData(){
-		const res = await fetch('./data/blog-data.json');
-		const text = await res.text()		
-		console.log('texto = '+text);
 		let ret={}
+		const existReq = location.href.indexOf('?')>0;		
+		const res = await fetch('./data/blog-data.json');
+		const text = await res.text()	
+		const getTitle = (cont)=>(cont.split('/')[0]==='pages'?cont.split('/')[1].replace(/_/g,' '):cont.split('-')[1].replace(/_/g,' '))	
+		console.log('texto = '+text);		
 		if (res.ok) {
 			ret= JSON.parse(text)
+			if(existReq){
+				ret.posts=[]
+				ret.singleText=true;
+				const content = location.href.split('?')[1]
+				const resCont = await fetch(`./data/${content}.md`);
+				const txtCont = await resCont.text();
+				if(resCont.ok){
+					ret.titleText = getTitle(content)
+					ret.text = txtCont;
+				}else{
+					throw new Error(text)
+					return ret
+				}
+			}
 		} else {			
 			throw new Error(text)
 			return ret
@@ -33,7 +50,7 @@
 		</ContentLoader>
 	{:then retorno}
 		<BlogHeader retorno={retorno}/>
-		<PostList lista={retorno.posts}/>
+		<Blog valor={retorno}/>		
 		<BlogFooter retorno={retorno}/>
 	{:catch error}
 		<p class="sos">{error.message}</p>

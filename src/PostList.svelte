@@ -1,9 +1,14 @@
 <script>
-    export let lista;
+    import Data from './Data.svelte'
+    export let lista
+    const toMdFile = (item)=>{
+        let title = item.title.replace(/\ /g,'_')
+        return `/?posts/${item.date}-${title}`
+    }
 </script>
 <style>
     h2.set{
-        font-size: 14px;
+        font-size: 16px;
         font-weight: bold;
     }
     h3.set{
@@ -14,13 +19,15 @@
     }
 </style>
 <section class="container">
+    
+    {#each lista as item}
     <div class="row">
-        {#each lista as item}
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <h2 class="set">{item.title}</h2>
+        <div class="col-lg-8 col-md-10 ml-auto">
+            <h2 class="set"><a href={toMdFile(item)}>{item.title}</a></h2>
             <h3 class="set">{item.start}</h3>
-            <span class="author">{item.author} em {item.date}</span>
+            <span class="author">{item.author} <Data valor={item.date}/></span>
         </div>
-        {/each}
     </div>
+    {/each}
+    
 </section>
