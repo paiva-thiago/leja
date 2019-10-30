@@ -19,7 +19,6 @@ export default {
 		name: 'app',
 		file: 'public/bundle.js'
 	},
-	//external: [ 'markdown-it','punycode' ],
 	plugins: [
 		svelte({
 			// enable run-time checks when not in production

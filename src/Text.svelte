@@ -1,12 +1,11 @@
 <script>    
-    /**TODO
-     * Implement a markdown render/search a way to import markdown-it
-     */
-    let md = {render:(v)=>v}
+    import { Remarkable } from 'remarkable';
     export let title
     export let value
+
+    let md = new Remarkable();
 </script>
 <main>
      <h1>{title}</h1>
-     {md.render(value)}
+     {@html md.render(value)}
 </main>
