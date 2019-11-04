@@ -1,4 +1,5 @@
 <script>    
+    import BlogDisqus from  './BlogDisqus.svelte'
     import { Remarkable } from 'remarkable';
     export let title
     export let value
@@ -8,4 +9,5 @@
 <main>
      <h1>{title}</h1>
      {@html md.render(value)}
+     <BlogDisqus/>
 </main>
