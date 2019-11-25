@@ -1,13 +1,13 @@
 <script>    
     import BlogDisqus from  './BlogDisqus.svelte'
-    import { Remarkable } from 'remarkable';
+    import { Remarkable } from 'remarkable'
+    export let commentSource
     export let title
     export let value
 
     let md = new Remarkable();
 </script>
 <main>
-     <h1>{title}</h1>
      {@html md.render(value)}
-     <BlogDisqus/>
+     <BlogDisqus {commentSource}/>
 </main>

@@ -1,7 +1,8 @@
 <script>
+    export let commentSource;
     (function() {
     var d = document, s = d.createElement('script');
-    s.src = 'https://leja.disqus.com/embed.js';
+    s.src = commentSource;
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
