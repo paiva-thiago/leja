@@ -3,9 +3,11 @@
 ![Leja Logo!](public/data/img/logo.png)
 
 :brazil:
+
 Leja é um sistema de blog estático desenvolvido a partir do  svelte, que está em sua fase beta :)
 
 :uk:
+
 Leja is a beta static CMS svelte-based :)
 
 ## Origem do nome
