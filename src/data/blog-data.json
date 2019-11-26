@@ -2,6 +2,8 @@
 	"title":"Leja",
 	"description": "A simple static CMS developed in svelte!",
 	"author": "Thiago Paiva",
+	"commentSystem" : "DISQUS",
+	"headerImg":"logo.png",
 	"commentSource" : "https://leja-demo.disqus.com/embed.js",
 	"pages" :["Sobre"],
 	"posts": [
