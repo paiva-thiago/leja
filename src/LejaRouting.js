@@ -1,6 +1,7 @@
     import navaid 	from 'navaid'    
     const empty = s =>((s==undefined)||(s==null)||(s.trim()===''))
     const loadText = async path =>{
+        let ret = {}
         ret.posts=[]
         ret.singleText=true
         ret.allowComments = true
@@ -38,12 +39,8 @@
         return dataRoute
     }
     const initRoute = async ()=>{
-        dataRoute = {
-            posts:[],
-            singleText:true,
-            text:'By Module!',
-            allowComments:false
-        }
+        dataRoute = await loadOne('pages','Sobre')
+        dataRoute.allowComments=false;
     }
     export async function _init(){
         console.log('starting route')
