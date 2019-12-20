@@ -1,36 +1,35 @@
 <script>
-	 import ContentLoader 	from 'svelte-content-loader'
-	 import BlogHeader 		from './BlogHeader.svelte'
-	 import Blog            from './Blog.svelte'
-	 import BlogFooter 		from './BlogFooter.svelte'
-	 import dataRouted     from './LejaRouting.js'
-	 
-	 async function getData(){
-		let data={}
+	import { Router, Route } from 'svero';
+	import Root from './components/Root.svelte'
+	import SinglePage from './components/SinglePage.svelte'
+	export let url = "";
+	/** Rota
+	async function _getData(){
+		let data=EMPTY_BLOG
 		try{
-			data =  await dataRouted()
-			console.log('testing...')
+			let router =  Navaid()
+			
+			.on('/pages/:title',async (p)=>{
+				console.log('going to pages!')
+				data = await loadOne('pages',p.title)
+			})
+			.on('/posts/:date-:title',async (p)=>{
+				console.log('going to posts!')
+				data = await loadOneWithDate('pages',p.date,p.title)
+			})
+			router.listen()
 		}catch(e){
-			throw new Error('Falha')
+			console.log(e)
+			throw new Error(`Falha ${e}`)
 		}
+		await console.log(JSON.stringify(data))
 		return data
 	 }	 
-	 let blogData = getData()
-	 
+	*/
 </script>
 <body>
-	{#await blogData}
-		<ContentLoader>
-		  <rect x="0" y="80" rx="3" ry="3" width="350" height="6" /> 
-		  <rect x="0" y="100" rx="3" ry="3" width="380" height="6" /> 
-		  <rect x="0" y="120" rx="3" ry="3" width="201" height="6" /> 
-		  <rect x="6" y="7" rx="0" ry="0" width="321" height="59" />
-		</ContentLoader>
-	{:then retorno}
-		<BlogHeader retorno={retorno}/>
-		<Blog valor={retorno}/>		
-		<BlogFooter retorno={retorno}/>
-	{:catch error}
-		<p class="sos">{error.message}</p>
-	{/await}	
+<Router url="{url}">  
+  <Route path="/pages/:title" component={SinglePage} />  
+  <Route path="" component={Root} />  
+</Router>	
 </body>

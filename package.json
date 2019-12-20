@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "navaid": "^1.0.5",
     "remarkable": "^2.0.0",
     "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-json": "^4.0.0",
@@ -22,6 +21,7 @@
     "sirv-cli": "^0.4.4",
     "svelte-content-loader": "^1.1.2",
     "sveltestrap": "^3.1.1",
+    "svero": "^1.0.0",
     "ws": "^7.2.0"
   },
   "scripts": {
