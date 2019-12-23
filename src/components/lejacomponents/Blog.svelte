@@ -6,5 +6,5 @@
 {#if !valor.singleText}
     <PostList lista={valor.posts}/>
 {:else}
-    <Text title={valor.titleText} value={valor.text} commentSource={valor.commentSource} commentSystem={valor.commentSystem}/>
+    <Text title={valor.titleText} value={valor.text} commentSource={valor.commentSource} commentSystem={valor.commentSystem} commentsInThisText={valor.allowComments}/>
 {/if}
