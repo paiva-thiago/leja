@@ -3,7 +3,7 @@
     export let lista
     const toMdFile = (item)=>{
         let title = item.title.replace(/\ /g,'_')
-        return `/?posts/${item.date}-${title}`
+        return `/posts/${item.date}-${title}`
     }
 </script>
 <style>

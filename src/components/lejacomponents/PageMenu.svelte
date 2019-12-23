@@ -18,15 +18,14 @@
   export let pages;
   const toMdFile = (item)=>{
         let title = item.replace(/\ /g,'_')
-        return `/?pages/${title}`
+        return `/pages/${title}`
   }
 </script>
 
 <Navbar color="light" light expand="md">  
   <NavbarToggler on:click={() => (isOpen = !isOpen)} />
   <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
-    <Nav class="mr-auto" navbar>
-      <NavbarBrand>Pages</NavbarBrand>
+    <Nav class="mr-auto" navbar>      
       <NavItem>
         <NavLink href="/">Home</NavLink>        
       </NavItem>

@@ -1,7 +1,7 @@
 <script>    
-    import BlogHeader 		from '../BlogHeader.svelte'
-	import Blog            from '../Blog.svelte'
-	import BlogFooter 		from '../BlogFooter.svelte'  
+    import BlogHeader 		from './lejacomponents/BlogHeader.svelte'
+	import Blog            from './lejacomponents/Blog.svelte'
+	import BlogFooter 		from './lejacomponents/BlogFooter.svelte'  
     export let retorno = {}
 </script>
 
