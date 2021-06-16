@@ -21,7 +21,7 @@
     "sirv-cli": "^0.4.4",
     "svelte-content-loader": "^1.1.2",
     "sveltestrap": "^3.1.1",
-    "ws": "^7.2.0",
+    "ws": "^7.4.6",
     "yrv": "0.0.16"
   },
   "scripts": {
